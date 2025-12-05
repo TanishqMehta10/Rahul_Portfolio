@@ -120,11 +120,14 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black py-20 px-4">
-      <div className="absolute inset-0 opacity-30">
+      {/* Desktop/tablet starfield (hide on small screens) */}
+      <div className="hidden sm:block absolute inset-0 opacity-30">
         <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
           <Starfield />
         </Canvas>
       </div>
+      {/* Simple static background for mobile */}
+      <div className="sm:hidden absolute inset-0 opacity-40 bg-gradient-to-b from-black via-gray-900 to-black" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">

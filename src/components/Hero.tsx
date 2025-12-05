@@ -204,7 +204,8 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
-      <div className="absolute inset-0">
+      {/* Canvas for desktop/tablet only (hide on small screens for performance) */}
+      <div className="hidden sm:block absolute inset-0">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
@@ -215,35 +216,37 @@ export default function Hero() {
         </Canvas>
       </div>
 
+      {/* Simple static background for small screens */}
+      <div className="sm:hidden absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
 
       <div className="relative z-10 flex h-full items-center justify-between px-8 md:px-32">
         {/* Left Content */}
         <div className="flex-1 flex flex-col items-center md:items-start justify-center text-center md:text-left md:pl-20">
-          <div className="mb-8 text-2xl md:text-3xl font-light text-cyan-400">
+          <div className="mb-8 text-lg sm:text-2xl md:text-3xl font-light text-cyan-400">
             {text}
             {showCursor && <span className="typing-cursor" aria-hidden="true" />}
           </div>
 
-          <h1 className="mb-4 text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 bg-clip-text text-transparent whitespace-nowrap">
+          <h1 className="mb-4 text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-teal-400 bg-clip-text text-transparent md:whitespace-nowrap">
             Hi, I'm Rahul Mantri
           </h1>
 
-          <div className="mb-6 text-2xl md:text-4xl font-bold bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
+          <div className="mb-6 text-lg sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
             Python Developer
           </div>
 
-          <p className="mb-12 max-w-2xl text-lg md:text-xl text-gray-300 leading-relaxed">
+          <p className="mb-12 max-w-2xl text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
             Combining clean logic, modern design, and powerful backend systems.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6">
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]">
+            <button className="w-full sm:w-auto group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]">
               <span className="relative z-10">Dive Into My Code</span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
-
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]">
+            <button className="w-full sm:w-auto group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]">
               <span className="relative z-10">Let's Build Something Cool</span>
               <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
@@ -252,7 +255,7 @@ export default function Hero() {
 
         {/* Right Photo Section */}
         <div className="flex-1 flex items-center justify-center md:justify-start md:pl-20">
-          <div className="relative w-64 h-64 md:w-80 md:h-80">
+          <div className="relative w-40 h-40 sm:w-64 sm:h-64 md:w-80 md:h-80">
             {/* Animated Border Container */}
             <div className="absolute inset-0 animate-border rounded-full p-1 shadow-lg">
               <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
