@@ -221,9 +221,9 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
 
-      <div className="relative z-10 flex h-full items-center justify-between px-8 md:px-32">
+      <div className="relative z-10 flex h-full flex-col md:flex-row items-center justify-between px-6 md:px-32 py-8 md:py-0">
         {/* Left Content */}
-        <div className="flex-1 flex flex-col items-center md:items-start justify-center text-center md:text-left md:pl-20">
+        <div className="flex-1 flex flex-col items-center md:items-start justify-center text-center md:text-left md:pl-6 md:pl-20">
           <div className="mb-8 text-lg sm:text-2xl md:text-3xl font-light text-cyan-400">
             {text}
             {showCursor && <span className="typing-cursor" aria-hidden="true" />}
@@ -253,9 +253,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Photo Section */}
-        <div className="flex-1 flex items-center justify-center md:justify-start md:pl-20">
-          <div className="relative w-40 h-40 sm:w-64 sm:h-64 md:w-80 md:h-80">
+        {/* Right Photo Section (moves below text on small screens) */}
+        <div className="w-full mt-8 md:mt-0 md:flex-1 flex items-center justify-center md:justify-start md:pl-20">
+          <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 mx-auto md:mx-0">
             {/* Animated Border Container */}
             <div className="absolute inset-0 animate-border rounded-full p-1 shadow-lg">
               <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
@@ -307,7 +307,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="hidden sm:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-cyan-400 rounded-full flex items-start justify-center p-2">
           <div className="w-1.5 h-3 bg-cyan-400 rounded-full animate-pulse" />
         </div>

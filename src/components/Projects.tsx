@@ -35,8 +35,8 @@ const projects = [
     tech: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     gradient: 'from-green-400 via-teal-500 to-emerald-600',
     icon: '🌿',
-    github: '#',
-    live: '#',
+    github: 'https://github.com/Mantri123/PanchSutra',
+    live: 'https://panchsutra.onrender.com',
   },
   {
     title: 'Typster',
@@ -45,7 +45,7 @@ const projects = [
     tech: ['React', 'TypeScript', 'Python', 'FastAPI'],
     gradient: 'from-cyan-400 via-blue-500 to-purple-600',
     icon: '⌨️',
-    github: '#',
+    github: 'https://github.com/Mantri123/Typster',
     live: '#',
   },
 ];
@@ -84,18 +84,24 @@ export default function Projects() {
                   <div className="flex gap-3">
                     <a
                       href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 bg-gray-800 rounded-lg hover:bg-cyan-600 transition-colors duration-300 hover:scale-110"
                       aria-label="GitHub"
                     >
                       <Github className="w-5 h-5 text-white" />
                     </a>
-                    <a
-                      href={project.live}
-                      className="p-2 bg-gray-800 rounded-lg hover:bg-cyan-600 transition-colors duration-300 hover:scale-110"
-                      aria-label="Live Demo"
-                    >
-                      <ExternalLink className="w-5 h-5 text-white" />
-                    </a>
+                    {project.live !== '#' && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 bg-gray-800 rounded-lg hover:bg-cyan-600 transition-colors duration-300 hover:scale-110"
+                        aria-label="Live Demo"
+                      >
+                        <ExternalLink className="w-5 h-5 text-white" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
